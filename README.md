@@ -3,6 +3,13 @@ io-2013-dart-codelab
 
 A modern web focused codelab built for Google I/O 2013.
 
+Build Status
+------------
+
+This badge passes when the `finished` directory is running successfully.
+
+[![Build Status](https://drone.io/github.com/dart-lang/io-2013-dart-codelab/status.png)](https://drone.io/github.com/dart-lang/io-2013-dart-codelab/latest)
+
 Acknowledgements
 ----------------
 
