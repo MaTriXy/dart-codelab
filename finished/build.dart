@@ -5,11 +5,14 @@ import 'dart:io';
 
 void main() {
   build(new Options().arguments, ['web/index.html'])
-    .then((results) {
+    .then((Iterable results) {
       print('Running dart2js on web_ui output...');
-      return Process.run('dart2js', [
-        results.first.bootstrapFile,
-      ]);
+      if (!results.isEmpty &&
+          new File(results.first.bootstrapFile).existsSync()) {
+        return Process.run('dart2js', [
+          results.first.bootstrapFile,
+        ]);
+      }
     })
     .then((_) => print('Build finished!'));
 }
