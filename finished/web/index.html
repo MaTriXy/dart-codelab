@@ -10,17 +10,17 @@
     <link rel="import" href="document_item.html">
   </head>
   <body>
-    <section id="sidebar" class="{{app.sidebarActive ? 'active' : ''}}">
+    <section id="sidebar" class="{{sidebarActive ? 'active' : ''}}">
       <div class="toolbar">
-        <button on-click="app.createDocument()">+</button>
+        <button on-click="createDocument()">+</button>
         <div class="input-wrap">
-          <input type="text" placeholder="Search" bind-value="app.searchFilter" />
+          <input type="text" placeholder="Search" bind-value="searchFilter" />
         </div>
       </div>
 
       <div class="items">
-        <template iterate="doc in app.documents">
-          <template instantiate="if app.matchesSearchFilter(doc)">
+        <template iterate="doc in documents">
+          <template instantiate="if matchesSearchFilter(doc)">
             <x-document-item doc="{{doc}}"></x-document-item>
           </template>
         </template>
@@ -30,17 +30,17 @@
         <a href="http://github.com/timothyarmstrong/web-ui-writer">View Source</a>
       </div>
     </section>
-    <section id="main" class="{{app.contentActive ? 'active' : ''}}">
-      <template instantiate="if app.activeDocument != null">
+    <section id="main" class="{{contentActive ? 'active' : ''}}">
+      <template instantiate="if activeDocument != null">
         <div class="title">
-          <button on-click="app.showMenu()">&lt;</button>
+          <button on-click="showMenu()">&lt;</button>
           <div class="input-wrap">
-            <input type="text" bind-value="app.activeDocument.title" on-key-up="app.saveActiveDocument()" />
+            <input type="text" bind-value="activeDocument.title" on-key-up="saveActiveDocument()" />
           </div>
         </div>
-        <textarea class="content" bind-value="app.activeDocument.content" on-key-up="app.saveActiveDocument()"></textarea>
+        <textarea class="content" bind-value="activeDocument.content" on-key-up="saveActiveDocument()"></textarea>
         <div class="footer">
-          {{app.activeDocument.wordCount}}
+          {{activeDocument.wordCount}}
         </div>
       </template>
     </section>

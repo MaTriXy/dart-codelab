@@ -2,10 +2,10 @@
 <html><body>
   <element name="x-document-item" constructor="DocumentItem" extends="div" apply-author-styles>
     <template indentation="remove">
-      <div class="item {{doc == app.activeDocument ? 'active': ''}}" on-click="app.selectDocument(doc, true)">
+      <div class="item {{doc == activeDocument ? 'active': ''}}" on-click="selectDocument(doc, true)">
           <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
           <div class="modified">{{modifiedFormat.format(doc.modified)}}</div>
-          <button class="delete" on-click="app.deleteDocument(doc)">&times;</button>
+          <button class="delete" on-click="deleteDocument(doc)">&times;</button>
       </div>
     </template>
 
