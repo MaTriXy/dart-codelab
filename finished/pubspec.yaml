@@ -1,4 +1,5 @@
 name: writer
 description: TODO
 dependencies:
+  intl: any
   web_ui: any

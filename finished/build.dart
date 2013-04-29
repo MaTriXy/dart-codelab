@@ -7,7 +7,7 @@ void main() {
   build(new Options().arguments, ['web/index.html'])
     .then((Iterable results) {
       print('Running dart2js on web_ui output...');
-      if (!results.isEmpty &&
+      if (!results.isEmpty && results.first.bootstrapFile != null &&
           new File(results.first.bootstrapFile).existsSync()) {
         return Process.run('dart2js', [
           results.first.bootstrapFile,
