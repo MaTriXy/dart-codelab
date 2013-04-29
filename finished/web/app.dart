@@ -7,7 +7,7 @@ import 'dart:math' show Random;
 
 import 'package:web_ui/web_ui.dart';
 
-part 'package:writer/document.dart'; 
+part 'package:writer/document.dart';
 
 // This class encapsulates the application state and logic.
 @observable

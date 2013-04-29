@@ -11,6 +11,7 @@ void main() {
           new File(results.first.bootstrapFile).existsSync()) {
         return Process.run('dart2js', [
           results.first.bootstrapFile,
+          '--out=${results.first.bootstrapFile}.js'
         ]);
       }
     })
