@@ -1,5 +1,8 @@
 name: writer
-description: TODO
+version: 0.0.1
+author: Dart Team <misc@dartlang.org>
+description: This is the finished version of the application built in the Google I/O 2013 Dart Codelab.
+homepage: https://github.com/dart-lang/io-2013-dart-codelab
 dependencies:
   intl: any
   web_ui: any
