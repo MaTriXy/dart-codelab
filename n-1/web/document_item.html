@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><body>
+  <element name="x-document-item" constructor="DocumentItem" extends="div" apply-author-styles>
+    <template indentation="remove">
+      <div class="item {{doc == activeDocument ? 'active': ''}}" on-click="selectDocument(doc, true)">
+          <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
+          <div class="modified">{{modifiedFormat.format(doc.modified)}}</div>
+          <button class="delete" on-click="deleteDocument(doc)">&times;</button>
+      </div>
+    </template>
+
+    <script type="application/dart">
+      import 'package:web_ui/web_ui.dart';
+      import 'package:intl/intl.dart';
+      import 'app.dart';
+
+      /**
+       * DateFormat for last modified time.
+       *
+       * Parsed time looks like: 'April 29, 9:48 AM'
+       */
+      DateFormat modifiedFormat = new DateFormat.MMMMd().addPattern('',', ').add_jm();
+
+      /**
+       * The view-model object for a written document.
+       */
+      class DocumentItem extends WebComponent {
+        Document doc;
+      }
+    </script>
+  </element>
+</body></html>
