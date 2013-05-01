@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html><body>
-  <element name="x-document-item" constructor="DocumentItem" extends="div" apply-author-styles>
+  <!-- Define a custom element -->
+  <element name="x-document-item" constructor="DocumentItem"
+      extends="div" apply-author-styles>
+
+    <!-- This template tag holds the content of our custom element -->
     <template indentation="remove">
-      <div class="item {{doc == activeDocument ? 'active': ''}}" on-click="selectDocument(doc, true)">
+      <div class="item {{doc == activeDocument ? 'active': ''}}"
+          on-click="selectDocument(doc, markActive: true)">
+
           <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
-          <div class="modified">{{modifiedFormat.format(doc.modified)}}</div>
+          <div class="modified">{{dateFormat.format(doc.modified)}}</div>
+
           <button class="delete" on-click="deleteDocument(doc)">&times;</button>
       </div>
     </template>
 
     <script type="application/dart">
       import 'package:web_ui/web_ui.dart';
-      import 'package:intl/intl.dart';
+
+      import 'package:writer/document.dart';
       import 'app.dart';
 
       /**
-       * DateFormat for last modified time.
-       *
-       * Parsed time looks like: 'April 29, 9:48 AM'
-       */
-      DateFormat modifiedFormat = new DateFormat.MMMMd().addPattern('',', ').add_jm();
-
-      /**
-       * The view-model object for a written document.
+       * This Dart class defines the behavior and
+       * state of the custom element.
        */
       class DocumentItem extends WebComponent {
         Document doc;

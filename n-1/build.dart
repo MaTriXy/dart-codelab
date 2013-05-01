@@ -7,7 +7,7 @@ import 'dart:async';
 void main() {
   var args = new List.from(new Options().arguments);
   build(args, ['web/index.html'])
-    .then((_) => _runDart2js('web/out/index.html_bootstrap.dart'))
+//    .then((_) => _runDart2js('web/out/index.html_bootstrap.dart'))
     .then((_) => print('Build finished!'));
 }
 
