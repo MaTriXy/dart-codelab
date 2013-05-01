@@ -58,15 +58,13 @@
           <div class="input-wrap">
 
             <!-- STEP N-2: Add event handler to save the active document. -->
-            <input type="text" bind-value="activeDocument.title"
-                on-key-up="saveDocument(activeDocument)" />
+            <input type="text" bind-value="activeDocument.title" />
           </div>
         </div>
 
         <!-- Content box -->
         <!-- STEP N-2: Add event handler to save the active document. -->
-        <textarea class="content" bind-value="activeDocument.content"
-            on-key-up="saveDocument(activeDocument)"></textarea>
+        <textarea class="content" bind-value="activeDocument.content"></textarea>
 
         <!-- Footer for a document shows the word count -->
         <div class="footer">

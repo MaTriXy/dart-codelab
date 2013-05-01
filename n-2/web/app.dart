@@ -9,7 +9,6 @@ import 'package:writer/document.dart';
 import 'package:writer/search.dart';
 
 // STEP N-2: Import storage.dart.
-import 'package:writer/storage.dart';
 
 /// A data bound list of documents.
 final List<Document> documents = toObservable([]);
@@ -33,7 +32,6 @@ void deleteDocument(Document doc) {
   documents.remove(doc);
 
   // STEP N-2: Also delete from local storage.
-  removeDocument(doc);
 }
 
 /**
@@ -64,7 +62,6 @@ void selectDocument(Document doc, {bool markActive: false}) {
 /// Starts the application.
 void main() {
   // STEP N-2: Initialize with all documents from local storage.
-  documents.addAll(fetchDocuments());
 
   selectDocument(documents.first);
 }
