@@ -1,5 +1,17 @@
-part of writer;
+library document;
 
+import 'dart:json' as JSON;
+import 'dart:math' show Random;
+
+import 'package:web_ui/web_ui.dart';
+
+
+
+/**
+ * A text file.
+ *
+ * The document keeps track of its creation and modification time.
+ */
 @observable
 class Document {
 
@@ -9,19 +21,18 @@ class Document {
   DateTime created;
   DateTime modified;
 
+  /// The unique identifier is `document-` followed by a large random number.
   String id;
 
-  // This construtor is for creating the object naturally.
+  /// Create a new document.
   Document(this._title, this._content) {
-    // Use the object's hashCode as the unique key.
-    // TODO: Maybe generate something longer?
     var random = new Random();
     id = 'document-${random.nextInt(1000000)}';
     created = new DateTime.now();
     modified = new DateTime.now();
   }
 
-  // This constructor is for re-creating an existing document from JSON.
+  /// Re-creates the document from serialized JSON.
   Document.fromJson(json) {
     var data = JSON.parse(json);
     id = data['id'];
@@ -43,6 +54,22 @@ class Document {
     return JSON.stringify(data);
   }
 
+  /**
+   *  Number of words in the document.
+   *
+   *  A "word" is a string of characters separated by a space or a newline.
+   */
+  String get wordCount {
+    int count = new RegExp(r"(\w|\')+").allMatches(_content).length;
+    if (count == 1) {
+      return '$count word';
+    }
+    return '$count words';
+  }
+
+
+  // These setters and getters are used to update the modification time.
+
   set title(String title) {
     _title = title;
     modified = new DateTime.now();
@@ -56,12 +83,4 @@ class Document {
   }
 
   String get content => _content;
-
-  String get wordCount {
-    int count = new RegExp(r"(\w|\')+").allMatches(_content).length;
-    if (count == 1) {
-      return '$count word';
-    }
-    return '$count words';
-  }
 }
