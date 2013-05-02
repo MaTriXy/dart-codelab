@@ -6,6 +6,8 @@ import 'dart:html' hide Document;
 import 'package:web_ui/web_ui.dart';
 
 import 'package:writer/document.dart';
+
+// STEP N-3: Import search.dart.
 import 'package:writer/search.dart';
 
 // STEP N-2: Import storage.dart.
@@ -66,5 +68,5 @@ void main() {
   // STEP N-2: Initialize with all documents from local storage.
   documents.addAll(fetchDocuments());
 
-  selectDocument(documents.first);
+  if (!documents.isEmpty) selectDocument(documents.first);
 }

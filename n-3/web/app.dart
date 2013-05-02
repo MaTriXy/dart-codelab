@@ -8,7 +8,6 @@ import 'package:web_ui/web_ui.dart';
 import 'package:writer/document.dart';
 
 // STEP N-3: Import search.dart.
-import 'package:writer/search.dart';
 
 // STEP N-2: Import storage.dart.
 

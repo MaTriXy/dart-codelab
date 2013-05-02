@@ -18,7 +18,7 @@
 
         <div class="input-wrap">
           <!-- STEP N-3: Add a input box to filter documents. -->
-          <input type="text" placeholder="Filter documents..." bind-value="searchFilter" />
+
         </div>
       </div>
 
@@ -29,11 +29,9 @@
         <template iterate="doc in documents">
 
           <!-- STEP N-3: Hide documents that don't match search filter. -->
-          <template instantiate="if matchesSearchFilter(doc)">
 
-            <!-- Our custom document element! -->
-            <x-document-item doc="{{doc}}"></x-document-item>
-          </template>
+          <!-- Our custom document element! -->
+          <x-document-item doc="{{doc}}"></x-document-item>
 
         </template>
       </div>

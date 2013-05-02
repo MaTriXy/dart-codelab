@@ -16,8 +16,8 @@
       <div class="toolbar">
         <button on-click="createDocument()">+</button>
 
-        <!-- Filter documents based on search term -->
         <div class="input-wrap">
+          <!-- STEP N-3: Add a input box to filter documents. -->
           <input type="text" placeholder="Filter documents..." bind-value="searchFilter" />
         </div>
       </div>
@@ -28,8 +28,9 @@
         <!-- One document for every element in `documents` -->
         <template iterate="doc in documents">
 
-          <!-- Hide documents that don't match search filter -->
+          <!-- STEP N-3: Hide documents that don't match search filter. -->
           <template instantiate="if matchesSearchFilter(doc)">
+
             <!-- Our custom document element! -->
             <x-document-item doc="{{doc}}"></x-document-item>
           </template>
