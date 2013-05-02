@@ -1,10 +1,12 @@
+<!-- STEP 2: Add this html file to web/ to include this component. -->
+
 <!DOCTYPE html>
 <html><body>
-  <!-- Define a custom element -->
+  <!-- STEP 2: Define a custom element. -->
   <element name="x-document-item" constructor="DocumentItem"
       extends="div" apply-author-styles>
 
-    <!-- This template tag holds the content of our custom element -->
+    <!-- STEP 2: Define the DOM template for our custom element -->
     <template indentation="remove">
 
       <!-- STEP 3: On click, select the document. -->
@@ -19,6 +21,7 @@
       </div>
     </template>
 
+    <!-- STEP 2: Add the script tag that defines this component's behaviour. -->
     <script type="application/dart">
       import 'package:web_ui/web_ui.dart';
 

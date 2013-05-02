@@ -1,37 +1,8 @@
+<!-- STEP 2: Add this html file to web/ to include this component. -->
+
 <!DOCTYPE html>
 <html><body>
-  <!-- Define a custom element -->
-  <element name="x-document-item" constructor="DocumentItem"
-      extends="div" apply-author-styles>
+  <!-- STEP 2: Define a custom element. -->
 
-    <!-- This template tag holds the content of our custom element -->
-    <template indentation="remove">
 
-      <!-- STEP 3: On click, select the document. -->
-      <div class="item {{doc == activeDocument ? 'active': ''}}"
-          on-click="contentActive = true">
-
-          <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
-          <div class="modified">{{dateFormat.format(doc.modified)}}</div>
-
-          <!-- STEP 3: Add delete button. -->
-
-      </div>
-    </template>
-
-    <script type="application/dart">
-      import 'package:web_ui/web_ui.dart';
-
-      import 'package:writer/document.dart';
-      import 'app.dart';
-
-      /**
-       * This Dart class defines the behavior and
-       * state of the custom element.
-       */
-      class DocumentItem extends WebComponent {
-        Document doc;
-      }
-    </script>
-  </element>
 </body></html>
