@@ -14,7 +14,7 @@
   <body>
 
     <!-- STEP 2: Add a sidebar to the application. -->
-    <section id="sidebar" class="{{contentActive ? '' : 'active'}}">
+    <section id="sidebar" class="{{sidebarClass}}">
       <div class="toolbar">
 
         <!-- STEP 3: Add a button to create a new document. -->
@@ -47,7 +47,7 @@
     </section>
 
     <!-- Editing window -->
-    <section id="main" class="{{contentActive ? 'active' : ''}}">
+    <section id="main" class="{{mainClass}}">
 
       <!-- Only have a title and content box if a document is selected -->
       <template if="activeDocument != null">
