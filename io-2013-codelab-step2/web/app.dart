@@ -20,6 +20,10 @@ Document activeDocument = new Document('Hello Codelab!',
 /// Used to control which panel is displayed in the mobile mode.
 bool contentActive = true;
 
+String get sidebarClass => contentActive ? '' : 'active';
+
+String get mainClass => contentActive ? 'active' : '';
+
 // STEP 3: Create a new document.
 
 
