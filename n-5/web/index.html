@@ -15,11 +15,11 @@
     <section id="sidebar" class="{{contentActive ? '' : 'active'}}">
       <div class="toolbar">
 
-        <!-- STEP N-4: Add a button to create a new document. -->
+        <!-- STEP 3: Add a button to create a new document. -->
 
 
         <div class="input-wrap">
-          <!-- STEP N-3: Add a input box to filter documents. -->
+          <!-- STEP 4: Add a input box to filter documents. -->
 
         </div>
       </div>
@@ -27,9 +27,9 @@
       <!-- Documents list -->
       <div class="items">
 
-        <!-- STEP N-4: Iterate over list of documents. -->
+        <!-- STEP 3: Iterate over list of documents. -->
 
-        <!-- STEP N-5: Add the active document to the sidebar. -->
+        <!-- STEP 2: Add the active document to the sidebar. -->
         <x-document-item doc="{{activeDocument}}"></x-document-item>
 
       </div>
@@ -54,13 +54,13 @@
           <!-- Document title -->
           <div class="input-wrap">
 
-            <!-- STEP N-2: Add event handler to save the active document. -->
+            <!-- STEP 5: Add event handler to save the active document. -->
             <input type="text" bind-value="activeDocument.title" />
           </div>
         </div>
 
         <!-- Content box -->
-        <!-- STEP N-2: Add event handler to save the active document. -->
+        <!-- STEP 5: Add event handler to save the active document. -->
         <textarea class="content" bind-value="activeDocument.content"></textarea>
 
         <!-- Footer for a document shows the word count -->
