@@ -1,4 +1,4 @@
-// STEP N-2: Add this library to enable local storage.
+// STEP 5: Add this library to enable local storage.
 
 /**
  * A library for storing the list of documents in the browser.
@@ -18,21 +18,21 @@ List<String> _storedIds = [];
 
 /// Save the document to local storage.
 void saveDocument(Document doc) {
-  // STEP N-2: Save the serialized version of the document to local storage.
+  // STEP 5: Save the serialized version of the document to local storage.
   window.localStorage[doc.id] = doc.toJson();
 
-  // STEP N-2: Add the new document ID to our list of document IDs.
+  // STEP 5: Add the new document ID to our list of document IDs.
   if (!_storedIds.contains(doc.id)) {
     _storedIds.add(doc.id);
   }
 
-  // STEP N-2: Update local storage map of IDs.
+  // STEP 5: Update local storage map of IDs.
   window.localStorage[DOCUMENT_ID_KEY] = JSON.stringify(_storedIds);
 }
 
 /// Removes the document from local storage.
 void removeDocument(Document doc) {
-  // STEP N-2: Remove the document from local storage.
+  // STEP 5: Remove the document from local storage.
   _storedIds.remove(doc.id);
   window.localStorage.remove(doc.id);
   window.localStorage[DOCUMENT_ID_KEY] = JSON.stringify(_storedIds);
@@ -40,17 +40,17 @@ void removeDocument(Document doc) {
 
 // Returns a collection of all documents from local storage.
 Iterable<Document> fetchDocuments() {
-  // STEP N-2: Get all document IDs from local storage.
+  // STEP 5: Get all document IDs from local storage.
   if (window.localStorage[DOCUMENT_ID_KEY] != null) {
     _storedIds = JSON.parse(window.localStorage[DOCUMENT_ID_KEY]);
   }
 
-  // STEP N-2: Get all documents from local storage.
+  // STEP 5: Get all documents from local storage.
   return _storedIds.map(_fetchDocument);
 }
 
 /// Gets a document from local storage.
 Document _fetchDocument(String id) {
-  // STEP N-2: Return one deserialized document from local storage.
+  // STEP 5: Return one deserialized document from local storage.
   return new Document.fromJson(window.localStorage[id]);
 }

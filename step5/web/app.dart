@@ -7,12 +7,12 @@ import 'package:web_ui/web_ui.dart';
 
 import 'package:writer/document.dart';
 
-// STEP N-3: Import search.dart.
+// STEP 4: Import search.dart.
 import 'package:writer/search.dart';
 
-// STEP N-2: Import storage.dart.
+// STEP 5: Import storage.dart.
 
-// STEP N-4: Add an observed list of documents.
+// STEP 3: Add an observed list of documents.
 final List<Document> documents = toObservable([]);
 
 /// The document currently being written.
@@ -22,7 +22,7 @@ Document activeDocument = new Document('Hello Codelab!',
 /// Used to control which panel is displayed in the mobile mode.
 bool contentActive = true;
 
-// STEP N-4: Create a new document.
+// STEP 3: Create a new document.
 void createDocument() {
   // Create a new document.
   var doc = new Document('Untitled', '');
@@ -30,14 +30,14 @@ void createDocument() {
   selectDocument(doc);
 }
 
-// STEP N-4: Add code to delete a document
+// STEP 3: Add code to delete a document
 void deleteDocument(Document doc) {
   documents.remove(doc);
 
-  // STEP N-2: Also delete from local storage.
+  // STEP 5: Also delete from local storage.
 }
 
-// STEP N-4: Add code to select a document.
+// STEP 3: Add code to select a document.
 /**
  * Select a document.
  *
@@ -64,11 +64,11 @@ void selectDocument(Document doc, {bool markActive: false}) {
 
 /// Starts the application.
 void main() {
-  // STEP N-2: Initialize with all documents from local storage.
+  // STEP 5: Initialize with all documents from local storage.
 
-  // STEP N-4: Create a new document if there are none.
+  // STEP 3: Create a new document if there are none.
   if (documents.isEmpty) createDocument();
 
-  // STEP N-4: Select the first document in the list of documents.
+  // STEP 3: Select the first document in the list of documents.
   selectDocument(documents.first);
 }

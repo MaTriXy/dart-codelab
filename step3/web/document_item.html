@@ -7,14 +7,14 @@
     <!-- This template tag holds the content of our custom element -->
     <template indentation="remove">
 
-      <!-- STEP N-4: On click, select the document. -->
+      <!-- STEP 3: On click, select the document. -->
       <div class="item {{doc == activeDocument ? 'active': ''}}"
           on-click="contentActive = true">
 
           <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
           <div class="modified">{{dateFormat.format(doc.modified)}}</div>
 
-          <!-- STEP N-4: Add delete button. -->
+          <!-- STEP 3: Add delete button. -->
 
       </div>
     </template>
