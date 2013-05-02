@@ -33,8 +33,8 @@
           <!-- STEP 4: Hide documents that don't match search filter. -->
           <template instantiate="if matchesSearchFilter(doc)">
 
-            <!-- STEP 2: Add the active document to the sidebar. -->
-            <x-document-item doc="{{activeDocument}}"></x-document-item>
+            <!-- Our custom document element! -->
+            <x-document-item doc="{{doc}}"></x-document-item>
           </template>
 
         </template>
