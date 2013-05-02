@@ -14,7 +14,9 @@
     <!-- Sidebar -->
     <section id="sidebar" class="{{contentActive ? '' : 'active'}}">
       <div class="toolbar">
-        <button on-click="createDocument()">+</button>
+
+        <!-- STEP N-4: Add a button to create a new document. -->
+
 
         <div class="input-wrap">
           <!-- STEP N-3: Add a input box to filter documents. -->
@@ -27,8 +29,7 @@
 
         <!-- STEP N-4: Iterate over list of documents. -->
 
-          <!-- Our custom document element! -->
-          <x-document-item doc="{{doc}}"></x-document-item>
+        <x-document-item doc="{{activeDocument}}"></x-document-item>
 
       </div>
 

@@ -6,13 +6,15 @@
 
     <!-- This template tag holds the content of our custom element -->
     <template indentation="remove">
-      <div class="item {{doc == activeDocument ? 'active': ''}}"
-          on-click="selectDocument(doc, markActive: true)">
+
+      <!-- STEP N-4: On click, select the document. -->
+      <div class="item {{doc == activeDocument ? 'active': ''}}">
 
           <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
           <div class="modified">{{dateFormat.format(doc.modified)}}</div>
 
-          <button class="delete" on-click="deleteDocument(doc)">&times;</button>
+          <!-- STEP N-4: Add delete button. -->
+
       </div>
     </template>
 
