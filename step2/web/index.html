@@ -6,39 +6,14 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css.css" />
 
-    <!-- Components -->
-    <link rel="import" href="document_item.html">
+    <!-- STEP 2: Import the document item component. -->
+
   </head>
 
   <body>
-    <!-- Sidebar -->
-    <section id="sidebar" class="{{contentActive ? '' : 'active'}}">
-      <div class="toolbar">
 
-        <!-- STEP 3: Add a button to create a new document. -->
+    <!-- STEP 2: Add a sidebar to the application. -->
 
-
-        <div class="input-wrap">
-          <!-- STEP 4: Add a input box to filter documents. -->
-
-        </div>
-      </div>
-
-      <!-- Documents list -->
-      <div class="items">
-
-        <!-- STEP 3: Iterate over list of documents. -->
-
-        <!-- STEP 2: Add the active document to the sidebar. -->
-        <x-document-item doc="{{activeDocument}}"></x-document-item>
-
-      </div>
-
-      <!-- Also check out dartlang.org! -->
-      <div class="footer">
-        <a href="https://github.com/dart-lang/io-2013-dart-codelab">View Source</a>
-      </div>
-    </section>
 
     <!-- Editing window -->
     <section id="main" class="{{contentActive ? 'active' : ''}}">
