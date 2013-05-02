@@ -37,6 +37,7 @@ input, textarea {
   border-bottom: 1px solid #ddd;
 }
 
+#main .title button,
 #sidebar .toolbar button {
   position: absolute;
   margin: 0;
@@ -50,6 +51,10 @@ input, textarea {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;
+}
+
+#main .title button {
+  display: none;
 }
 
 #sidebar .toolbar button:hover {
@@ -128,6 +133,7 @@ input, textarea {
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
+#main .footer,
 #sidebar .footer {
   position: absolute;
   bottom: 0;
@@ -171,25 +177,6 @@ input, textarea {
   height: 40px;
   background: #eee;
   border-bottom: 1px solid #ddd;
-}
-
-/* TODO: De-dupe these button styles with the other button. */
-
-#main .title button {
-  position: absolute;
-  margin: 0;
-  top: 5px;
-  bottom: 5px;
-  left: 5px;
-  width: 35px;
-  background: #f3f3f3;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-
-  display: none;
 }
 
 #main .title button:hover {
@@ -243,18 +230,6 @@ input, textarea {
   width: 100%;
   resize: none;
   border: none;
-}
-
-#main .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  background: #eee;
-  border-top: 1px solid #ddd;
-  padding: 0 5px;
-  line-height: 30px;
 }
 
 /* Mobile styles. */
