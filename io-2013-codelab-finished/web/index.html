@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Dart Writer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css.css" />
+    <link rel="stylesheet" type="text/css" href="css.css">
 
     <!-- STEP 2: Import the document item component. -->
     <link rel="import" href="document_item.html">
@@ -22,7 +22,7 @@
 
         <div class="input-wrap">
           <!-- STEP 4: Add a input box to filter documents. -->
-          <input type="text" placeholder="Filter documents..." bind-value="searchFilter" />
+          <input type="text" placeholder="Filter documents..." bind-value="searchFilter">
         </div>
       </div>
 
@@ -33,7 +33,7 @@
         <template iterate="doc in documents">
 
           <!-- STEP 4: Hide documents that don't match search filter. -->
-          <template instantiate="if matchesSearchFilter(doc)">
+          <template if="matchesSearchFilter(doc)">
 
             <!-- Our custom document element! -->
             <x-document-item doc="{{doc}}"></x-document-item>
@@ -52,7 +52,7 @@
     <section id="main" class="{{contentActive ? 'active' : ''}}">
 
       <!-- Only have a title and content box if a document is selected -->
-      <template instantiate="if activeDocument != null">
+      <template if="activeDocument != null">
 
         <div class="title">
           <!-- Button to go back to document list.
@@ -64,7 +64,7 @@
 
             <!-- STEP 5: Add event handler to save the active document. -->
             <input type="text" bind-value="activeDocument.title"
-                on-key-up="saveDocument(activeDocument)" />
+                on-key-up="saveDocument(activeDocument)">
           </div>
         </div>
 
