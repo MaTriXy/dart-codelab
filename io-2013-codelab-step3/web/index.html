@@ -65,9 +65,11 @@
         <!-- STEP 5: Add event handler to save the active document. -->
         <textarea class="content" bind-value="activeDocument.content"></textarea>
 
-        <!-- Footer for a document shows the word count -->
         <div class="footer">
+
+          <!-- STEP 1: Show the current word count. -->
           {{activeDocument.wordCount}}
+
         </div>
       </template>
     </section>

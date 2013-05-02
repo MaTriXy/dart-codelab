@@ -73,9 +73,11 @@
         <textarea class="content" bind-value="activeDocument.content"
             on-key-up="saveDocument(activeDocument)"></textarea>
 
-        <!-- Footer for a document shows the word count -->
         <div class="footer">
+
+          <!-- STEP 1: Show the current word count. -->
           {{activeDocument.wordCount}}
+
         </div>
       </template>
     </section>
