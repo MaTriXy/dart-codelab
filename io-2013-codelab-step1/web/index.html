@@ -16,7 +16,7 @@
 
 
     <!-- Editing window -->
-    <section id="main" class="{{contentActive ? 'active' : ''}}">
+    <section id="main" class="{{mainClass}}">
 
       <!-- Only have a title and content box if a document is selected -->
       <template if="activeDocument != null">
@@ -34,7 +34,6 @@
           </div>
         </div>
 
-        <!-- Content box -->
         <!-- STEP 5: Add event handler to save the active document. -->
         <textarea class="content" bind-value="activeDocument.content"></textarea>
 

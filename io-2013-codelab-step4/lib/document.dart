@@ -59,6 +59,7 @@ class Document {
     return JSON.stringify(data);
   }
 
+  /// STEP 1: Add wordcount method.
   /**
    *  Number of words in the document.
    *

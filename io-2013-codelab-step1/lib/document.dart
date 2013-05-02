@@ -59,18 +59,8 @@ class Document {
     return JSON.stringify(data);
   }
 
-  /**
-   *  Number of words in the document.
-   *
-   *  A "word" is a string of characters separated by a space or a newline.
-   */
-  String get wordCount {
-    int count = new RegExp(r"(\w|\')+").allMatches(_content).length;
-    if (count == 1) {
-      return '$count word';
-    }
-    return '$count words';
-  }
+  /// STEP 1: Add wordcount method.
+
 
   // These setters and getters are used to update the modification time.
 
