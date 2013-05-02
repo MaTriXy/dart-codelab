@@ -10,14 +10,14 @@
     <template>
 
       <!-- STEP 3: On click, select the document. -->
-      <div class="item {{doc == activeDocument ? 'active': ''}}"
-          on-click="selectDocument(doc, markActive: true)">
+      <div class="item {{isActiveClass}}"
+          on-click="app.selectDocument(doc, markActive: true)">
 
-          <div class="title">{{doc.title.isEmpty ? 'Untitled' : doc.title}}</div>
-          <div class="modified">{{dateFormat.format(doc.modified)}}</div>
+          <div class="title">{{title}}</div>
+          <div class="modified">{{modified}}</div>
 
           <!-- STEP 3: Add delete button. -->
-          <button class="delete" on-click="deleteDocument(doc)">&times;</button>
+          <button class="delete" on-click="app.deleteDocument(doc)">&times;</button>
       </div>
     </template>
 
@@ -26,7 +26,7 @@
       import 'package:web_ui/web_ui.dart';
 
       import 'package:writer/document.dart';
-      import 'app.dart';
+      import 'app.dart' as app;
 
       /**
        * This Dart class defines the behavior and
@@ -34,6 +34,14 @@
        */
       class DocumentItem extends WebComponent {
         Document doc;
+        
+        String get title => doc.title.isEmpty ? 'Untitled' : doc.title;
+        
+        String get modified => dateFormat.format(doc.modified);
+        
+        String get isActiveClass => doc == app.activeDocument ? 'active': '';
+
+
       }
     </script>
   </element>
