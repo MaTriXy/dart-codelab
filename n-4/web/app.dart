@@ -11,59 +11,29 @@ import 'package:writer/document.dart';
 
 // STEP N-2: Import storage.dart.
 
-/// A data bound list of documents.
-final List<Document> documents = toObservable([]);
+// STEP N-4: Add an observed list of documents.
 
 /// The document currently being written.
-Document activeDocument;
+Document activeDocument = new Document('Hello Codelab!',
+    'Try typing in this document!');
 
 /// Used to control which panel is displayed in the mobile mode.
-bool contentActive = false;
+bool contentActive = true;
 
-/// Creates a new empty document in the application.
-void createDocument() {
-  // Create a new document.
-  var doc = new Document('Untitled', '');
-  documents.add(doc);
-  selectDocument(doc);
-}
+// STEP N-4: Create a new document.
 
-/// Deletes a document from the application.
-void deleteDocument(Document doc) {
-  documents.remove(doc);
 
-  // STEP N-2: Also delete from local storage.
-}
+// STEP N-4: Add code to delete a document
 
-/**
- * Select a document.
- *
- * If [doc] is not found, try to select [activeDocument], and if that's not
- * found, then select the last document. If there are no documents, select
- * nothing.
- *
- * If [markActive] is true, then open the editing window.
- */
-void selectDocument(Document doc, {bool markActive: false}) {
-  if (documents.isEmpty) {
-    activeDocument = null;
-  } else if (doc != null && documents.contains(doc) && doc != activeDocument) {
-    // Change active document.
-    activeDocument = doc;
-  } else if (activeDocument != null && documents.contains(activeDocument)) {
-    // Stay on the active document and display the editing window.
-    contentActive = markActive && doc == activeDocument;
-  } else {
-    // Fall back to the last document.
-    activeDocument = documents.last;
-  }
-}
+
+// STEP N-4: Add code to select a document.
+
 
 /// Starts the application.
 void main() {
   // STEP N-2: Initialize with all documents from local storage.
 
-  // Add a document if there are none at startup.
-  if (documents.isEmpty) createDocument();
-  selectDocument(documents.first);
+  // STEP N-4: Create a new document if there are none.
+
+  // STEP N-4: Select the first document in the list of documents.
 }

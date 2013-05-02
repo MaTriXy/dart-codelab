@@ -11,16 +11,17 @@ import 'package:writer/document.dart';
 
 // STEP N-2: Import storage.dart.
 
-/// A data bound list of documents.
+// STEP N-4: Add an observed list of documents.
 final List<Document> documents = toObservable([]);
 
 /// The document currently being written.
-Document activeDocument;
+Document activeDocument = new Document('Hello Codelab!',
+    'Try typing in this document!');
 
 /// Used to control which panel is displayed in the mobile mode.
-bool contentActive = false;
+bool contentActive = true;
 
-/// Creates a new empty document in the application.
+// STEP N-4: Create a new document.
 void createDocument() {
   // Create a new document.
   var doc = new Document('Untitled', '');
@@ -28,13 +29,14 @@ void createDocument() {
   selectDocument(doc);
 }
 
-/// Deletes a document from the application.
+// STEP N-4: Add code to delete a document
 void deleteDocument(Document doc) {
   documents.remove(doc);
 
   // STEP N-2: Also delete from local storage.
 }
 
+// STEP N-4: Add code to select a document.
 /**
  * Select a document.
  *
@@ -63,7 +65,9 @@ void selectDocument(Document doc, {bool markActive: false}) {
 void main() {
   // STEP N-2: Initialize with all documents from local storage.
 
-  // Add a document if there are none at startup.
+  // STEP N-4: Create a new document if there are none.
   if (documents.isEmpty) createDocument();
+
+  // STEP N-4: Select the first document in the list of documents.
   selectDocument(documents.first);
 }

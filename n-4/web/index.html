@@ -25,15 +25,11 @@
       <!-- Documents list -->
       <div class="items">
 
-        <!-- One document for every element in `documents` -->
-        <template iterate="doc in documents">
-
-          <!-- STEP N-3: Hide documents that don't match search filter. -->
+        <!-- STEP N-4: Iterate over list of documents. -->
 
           <!-- Our custom document element! -->
           <x-document-item doc="{{doc}}"></x-document-item>
 
-        </template>
       </div>
 
       <!-- Also check out dartlang.org! -->
