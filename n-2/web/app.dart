@@ -48,17 +48,16 @@ void deleteDocument(Document doc) {
 void selectDocument(Document doc, {bool markActive: false}) {
   if (documents.isEmpty) {
     activeDocument = null;
-  } else if (doc != null && documents.contains(doc)) {
+  } else if (doc != null && documents.contains(doc) && doc != activeDocument) {
+    // Change active document.
     activeDocument = doc;
   } else if (activeDocument != null && documents.contains(activeDocument)) {
-    // Stay on active document.
+    // Stay on the active document and display the editing window.
+    contentActive = markActive && doc == activeDocument;
   } else {
     // Fall back to the last document.
     activeDocument = documents.last;
   }
-
-  // Display the editing window.
-  if (markActive) contentActive = true;
 }
 
 /// Starts the application.
