@@ -15,29 +15,23 @@
     <section id="sidebar" class="{{contentActive ? '' : 'active'}}">
       <div class="toolbar">
 
-        <!-- STEP 3: Add a button to create a new document. -->
-        <button on-click="createDocument()">+</button>
+        <!-- STEP N-4: Add a button to create a new document. -->
+
 
         <div class="input-wrap">
-          <!-- STEP 4: Add a input box to filter documents. -->
-          <input type="text" placeholder="Filter documents..." bind-value="searchFilter" />
+          <!-- STEP N-3: Add a input box to filter documents. -->
+
         </div>
       </div>
 
       <!-- Documents list -->
       <div class="items">
 
-        <!-- STEP 3: Iterate over list of documents. -->
-        <template iterate="doc in documents">
+        <!-- STEP N-4: Iterate over list of documents. -->
 
-          <!-- STEP 4: Hide documents that don't match search filter. -->
-          <template instantiate="if matchesSearchFilter(doc)">
+        <!-- STEP N-5: Add the active document to the sidebar. -->
+        <x-document-item doc="{{activeDocument}}"></x-document-item>
 
-            <!-- STEP N-5: Add the active document to the sidebar. -->
-            <x-document-item doc="{{activeDocument}}"></x-document-item>
-          </template>
-
-        </template>
       </div>
 
       <!-- Also check out dartlang.org! -->
@@ -60,16 +54,14 @@
           <!-- Document title -->
           <div class="input-wrap">
 
-            <!-- STEP 5: Add event handler to save the active document. -->
-            <input type="text" bind-value="activeDocument.title"
-                on-key-up="saveDocument(activeDocument)" />
+            <!-- STEP N-2: Add event handler to save the active document. -->
+            <input type="text" bind-value="activeDocument.title" />
           </div>
         </div>
 
         <!-- Content box -->
-        <!-- STEP 5: Add event handler to save the active document. -->
-        <textarea class="content" bind-value="activeDocument.content"
-            on-key-up="saveDocument(activeDocument)"></textarea>
+        <!-- STEP N-2: Add event handler to save the active document. -->
+        <textarea class="content" bind-value="activeDocument.content"></textarea>
 
         <!-- Footer for a document shows the word count -->
         <div class="footer">
