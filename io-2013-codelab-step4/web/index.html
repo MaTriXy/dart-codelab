@@ -50,7 +50,7 @@
     <section id="main" class="{{contentActive ? 'active' : ''}}">
 
       <!-- Only have a title and content box if a document is selected -->
-      <template instantiate="if activeDocument != null">
+      <template if="activeDocument != null">
 
         <div class="title">
           <!-- Button to go back to document list.
