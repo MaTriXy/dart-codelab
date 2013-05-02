@@ -64,5 +64,7 @@ void selectDocument(Document doc, {bool markActive: false}) {
 void main() {
   // STEP N-2: Initialize with all documents from local storage.
 
-  if (!documents.isEmpty) selectDocument(documents.first);
+  // Add a document if there are none at startup.
+  if (documents.isEmpty) createDocument();
+  selectDocument(documents.first);
 }
