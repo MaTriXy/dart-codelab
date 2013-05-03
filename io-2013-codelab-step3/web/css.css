@@ -83,12 +83,6 @@ input, textarea {
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
-#sidebar .item:active {
-  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 #sidebar .item .title {
   font-size: 13px;
   font-weight: 700;
@@ -271,6 +265,13 @@ input, textarea {
   left: 0;
 }
 
+@media all and (min-width: 501px) {
+  #sidebar .item:active {
+    -webkit-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+}
 
 /* Mobile styles. */
 @media all and (max-width: 500px) {
@@ -278,6 +279,13 @@ input, textarea {
     overflow: hidden;
   }
 
+  #sidebar .touched .item {
+    background-color:rgba(250, 150, 150, .8);
+
+    -webkit-transition: all .7s cubic-bezier(.65,-0.50,.76,1.32);
+    -moz-transition: all .7s cubic-bezier(.65,-0.50,.76,1.32);
+    transition: all .7s cubic-bezier(.65,-0.50,.76,1.32);
+  }
 
   #sidebar {
     top: 0;
@@ -299,7 +307,7 @@ input, textarea {
     transform: translate3d(0, 0, 0);
   }
 
-  #sidebar .item .delete {
+  #sidebar .item.active .delete {
     opacity: .7;
   }
 
