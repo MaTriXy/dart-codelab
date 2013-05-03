@@ -35,7 +35,8 @@
           <!-- STEP 4: Hide documents that don't match search filter. -->
           <template if="matchesSearchFilter(doc)">
 
-            <!-- Our custom document element! -->
+            <!-- STEP 6: Listen for awesome touch events. -->
+            <!-- STEP 3: On click, select the document. -->
             <x-document-item doc="{{doc}}"
               on-click="selectDocument(doc, markActive: true, event: $event)"
               on-touch-start="touchStart($event, doc)"

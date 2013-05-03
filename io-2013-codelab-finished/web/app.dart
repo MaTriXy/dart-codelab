@@ -55,10 +55,6 @@ void deleteDocument(Document doc) {
  * If [markActive] is true, then open the editing window.
  */
 void selectDocument(Document doc, {bool markActive: false, Event event}) {
-  if (event != null) {
-    print(event.type);
-  }
-
   if (documents.isEmpty) {
     activeDocument = null;
   } else if (doc != null && documents.contains(doc) && doc != activeDocument) {
@@ -85,23 +81,23 @@ void main() {
   selectDocument(documents.first);
 }
 
+/// STEP 6: Add some fancy mobile stuff!
 
 int _startTime;
 
+/// Listen for touch to start. Clicks will pass through.
 touchStart(TouchEvent event, Document doc) {
-  print('start');
-
   event.currentTarget.classes.add('touched');
   _startTime = event.timeStamp;
 }
 
+/// Listen for moves, which stop clicks.
 touchMove(TouchEvent event) {
-  print("move");
   event.preventDefault();
 }
 
+/// After waiting for a longpress, send a mail of the document.
 touchEnd(TouchEvent event, Document doc) {
-  print('end');
   event.currentTarget.classes.remove('touched');
   if (event.timeStamp > _startTime + 700) {
     event.preventDefault();
@@ -113,6 +109,7 @@ touchEnd(TouchEvent event, Document doc) {
   }
 }
 
+/// Simply stop the event wholesale.
 void touchCancel(TouchEvent event) {
   event.preventDefault();
 }
