@@ -36,7 +36,13 @@
           <template if="matchesSearchFilter(doc)">
 
             <!-- Our custom document element! -->
-            <x-document-item doc="{{doc}}"></x-document-item>
+            <x-document-item doc="{{doc}}"
+              on-click="selectDocument(doc, markActive: true, event: $event)"
+              on-touch-start="touchStart($event, doc)"
+              on-touch-move="touchMove($event)"
+              on-touch-cancel="touchCancel($event)"
+              on-touch-leave="touchCancel($event)"
+              on-touch-end="touchEnd($event, doc)"></x-document-item>
           </template>
 
         </template>

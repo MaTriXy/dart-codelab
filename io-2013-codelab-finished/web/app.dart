@@ -54,7 +54,11 @@ void deleteDocument(Document doc) {
  *
  * If [markActive] is true, then open the editing window.
  */
-void selectDocument(Document doc, {bool markActive: false}) {
+void selectDocument(Document doc, {bool markActive: false, Event event}) {
+  if (event != null) {
+    print(event.type);
+  }
+
   if (documents.isEmpty) {
     activeDocument = null;
   } else if (doc != null && documents.contains(doc) && doc != activeDocument) {
@@ -81,72 +85,34 @@ void main() {
   selectDocument(documents.first);
 }
 
-Rect _originalRect = null;
-Element _sidebarItem = null;
-Timer _timer = null;
-bool _longpress = false;
 
-void _reset() {
-  if (_timer != null) _timer.cancel();
+int _startTime;
 
-  var touched = queryAll('.touched');
-  touched.forEach((e) => e.classes.remove('touched'));
-
-  _sidebarItem = null;
-
-  _originalRect = null;
-  _longpress = false;
-  _timer = null;
-}
-
-void touchStart(TouchEvent event, Element element, Document doc) {
+touchStart(TouchEvent event, Document doc) {
   print('start');
-  event.preventDefault();
 
-  _sidebarItem = element.children.first;
-  _originalRect = element.getBoundingClientRect();
-
-  if (doc != activeDocument) selectDocument(doc, markActive: true);
-
-  _timer = new Timer(new Duration(milliseconds: 50), () {
-    _sidebarItem.classes.add('touched');
-
-    if (_timer != null) {
-      _timer = new Timer(new Duration(milliseconds: 700), () {
-        if (_timer != null) _longpress = true;
-      });
-    } else {
-      selectDocument(doc, markActive: true);
-    }
-  });
+  event.currentTarget.classes.add('touched');
+  _startTime = event.timeStamp;
 }
 
-void touchEnd(TouchEvent event) {
+touchMove(TouchEvent event) {
+  print("move");
   event.preventDefault();
+}
+
+touchEnd(TouchEvent event, Document doc) {
   print('end');
-  if (_longpress == true) {
-
-    print('foo');
-    //window.location.href = 'mailto:amouravski@google.com';
-  }
-  _reset();
-}
-
-bool _eventWithinElement(TouchEvent event) {
-  return _originalRect != null && event.touches != null &&
-      event.touches.length == 1 &&
-      _originalRect.containsPoint(event.touches.single.client);
-}
-
-void touchMove(TouchEvent event) {
-  print(_originalRect);
-  event.preventDefault();
-  if (!_eventWithinElement(event)) {
-    _reset();
+  event.currentTarget.classes.remove('touched');
+  if (event.timeStamp > _startTime + 700) {
+    event.preventDefault();
+    window.location.href = 'mailto:?to=&subject=Document: ${doc.title}'
+        '&body=${doc.content}%0D%0A%0D%0A%0D%0AThis e-mail was written with The Dart Web Writer!'
+        '%0D%0A'
+        '%0D%0AThanks for trying out the codelab!'
+        '%0D%0Awww.dartlang.org';
   }
 }
 
 void touchCancel(TouchEvent event) {
   event.preventDefault();
-  _reset();
 }

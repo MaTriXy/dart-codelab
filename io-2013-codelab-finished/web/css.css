@@ -279,8 +279,7 @@ input, textarea {
     overflow: hidden;
   }
 
-  #sidebar .item.active.touched,
-  #sidebar .item:active {
+  #sidebar .touched .item {
     background-color:rgba(250, 150, 150, .8);
 
     -webkit-transition: all .7s cubic-bezier(.65,-0.50,.76,1.32);

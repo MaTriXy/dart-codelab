@@ -10,13 +10,7 @@
     <template>
 
       <!-- STEP 3: On click, select the document. -->
-      <div class="item {{isActiveClass}}"
-          on-click="app.selectDocument(doc, markActive: true)"
-          on-touch-start="app.touchStart($event, this, doc)"
-          on-touch-move="app.touchMove($event)"
-          on-touch-cancel="app.touchCancel($event)"
-          on-touch-leave="app.touchCancel($event)"
-          on-touch-end="app.touchEnd($event)">
+      <div class="item {{isActiveClass}}">
 
           <div class="title">{{title}}</div>
           <div class="modified">{{modified}}</div>
