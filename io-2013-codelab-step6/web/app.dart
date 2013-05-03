@@ -1,7 +1,6 @@
 @observable
 library writer;
 
-import 'dart:async';
 import 'dart:html' hide Document;
 
 import 'package:web_ui/web_ui.dart';
