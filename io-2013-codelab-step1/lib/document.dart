@@ -7,14 +7,16 @@ import 'dart:json' as JSON;
 import 'dart:math' show Random;
 
 import 'package:intl/intl.dart';
-import 'package:web_ui/web_ui.dart';
+
+/// STEP 1: Import the Web UI package.
 
 /**
  * A file of plain text.
  *
  * The document keeps track of its creation and modification time.
  */
-@observable
+
+/// STEP 1: Mark the class with @observable.
 class Document {
 
   String _title;
