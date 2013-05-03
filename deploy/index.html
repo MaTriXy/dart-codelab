@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dart Writer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css.css">
+
+    <!-- STEP 2: Import the document item component. -->
+    <link rel="import" href="document_item.html">
+
+  </head>
+
+  <body>
+
+    <!-- STEP 2: Add a sidebar to the application. -->
+    <section id="sidebar" class="{{sidebarClass}}">
+      <div class="toolbar">
+
+        <!-- STEP 3: Add a button to create a new document. -->
+        <button on-click="createDocument()">+</button>
+
+        <div class="input-wrap">
+          <!-- STEP 4: Add a input box to filter documents. -->
+          <input type="text" placeholder="Filter documents..." bind-value="searchFilter">
+        </div>
+      </div>
+
+      <!-- Documents list -->
+      <div class="items">
+
+        <!-- STEP 3: Iterate over list of documents. -->
+        <template iterate="doc in documents">
+
+          <!-- STEP 4: Hide documents that don't match search filter. -->
+          <template if="matchesSearchFilter(doc)">
+
+            <!-- STEP 6: Listen for awesome touch events. -->
+            <!-- STEP 3: On click, select the document. -->
+            <x-document-item doc="{{doc}}"
+              on-click="selectDocument(doc, markActive: true, event: $event)"
+              on-touch-start="touchStart($event, doc)"
+              on-touch-move="touchMove($event)"
+              on-touch-cancel="touchCancel($event)"
+              on-touch-leave="touchCancel($event)"
+              on-touch-end="touchEnd($event, doc)"></x-document-item>
+          </template>
+
+        </template>
+      </div>
+
+      <!-- Also check out dartlang.org! -->
+      <div class="footer">
+        <a href="https://github.com/dart-lang/io-2013-dart-codelab">View Source</a>
+      </div>
+    </section>
+
+    <!-- Editing window -->
+    <section id="main" class="{{mainClass}}">
+
+      <!-- Only have a title and content box if a document is selected -->
+      <template if="activeDocument != null">
+
+        <div class="title">
+          <!-- Button to go back to document list.
+               Only visible in a small viewport. -->
+          <button on-click="contentActive = false">&lt;</button>
+
+          <!-- Document title -->
+          <div class="input-wrap">
+
+            <!-- STEP 5: Add event handler to save the active document. -->
+            <input type="text" bind-value="activeDocument.title"
+                on-key-up="saveDocument(activeDocument)">
+          </div>
+        </div>
+
+        <!-- STEP 5: Add event handler to save the active document. -->
+        <textarea class="content" bind-value="activeDocument.content"
+            on-key-up="saveDocument(activeDocument)"></textarea>
+
+        <div class="footer">
+
+          <!-- STEP 1: Show the current word count. -->
+          {{activeDocument.wordCount}}
+
+        </div>
+      </template>
+    </section>
+
+    <!-- Main application code -->
+    <script type="application/dart" src="app.dart"></script>
+
+    <!-- Bootstrap script -->
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
