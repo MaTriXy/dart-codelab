@@ -1,6 +1,7 @@
 @observable
 library writer;
 
+import 'dart:async';
 import 'dart:html' hide Document;
 
 import 'package:web_ui/web_ui.dart';
@@ -78,4 +79,74 @@ void main() {
 
   // STEP 3: Select the first document in the list of documents.
   selectDocument(documents.first);
+}
+
+Rect _originalRect = null;
+Element _sidebarItem = null;
+Timer _timer = null;
+bool _longpress = false;
+
+void _reset() {
+  if (_timer != null) _timer.cancel();
+
+  var touched = queryAll('.touched');
+  touched.forEach((e) => e.classes.remove('touched'));
+
+  _sidebarItem = null;
+
+  _originalRect = null;
+  _longpress = false;
+  _timer = null;
+}
+
+void touchStart(TouchEvent event, Element element, Document doc) {
+  print('start');
+  event.preventDefault();
+
+  _sidebarItem = element.children.first;
+  _originalRect = element.getBoundingClientRect();
+
+  if (doc != activeDocument) selectDocument(doc, markActive: true);
+
+  _timer = new Timer(new Duration(milliseconds: 50), () {
+    _sidebarItem.classes.add('touched');
+
+    if (_timer != null) {
+      _timer = new Timer(new Duration(milliseconds: 700), () {
+        if (_timer != null) _longpress = true;
+      });
+    } else {
+      selectDocument(doc, markActive: true);
+    }
+  });
+}
+
+void touchEnd(TouchEvent event) {
+  event.preventDefault();
+  print('end');
+  if (_longpress == true) {
+
+    print('foo');
+    //window.location.href = 'mailto:amouravski@google.com';
+  }
+  _reset();
+}
+
+bool _eventWithinElement(TouchEvent event) {
+  return _originalRect != null && event.touches != null &&
+      event.touches.length == 1 &&
+      _originalRect.containsPoint(event.touches.single.client);
+}
+
+void touchMove(TouchEvent event) {
+  print(_originalRect);
+  event.preventDefault();
+  if (!_eventWithinElement(event)) {
+    _reset();
+  }
+}
+
+void touchCancel(TouchEvent event) {
+  event.preventDefault();
+  _reset();
 }
