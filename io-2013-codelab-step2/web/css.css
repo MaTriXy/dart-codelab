@@ -121,12 +121,12 @@ input, textarea {
   line-height: 16px;
   right: 5px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 14pt;
   opacity: 0;
 }
 
 #sidebar .item:HOVER .delete {
-  opacity: 1;
+  opacity: .7;
 }
 
 #sidebar .item .delete:HOVER {
@@ -244,6 +244,7 @@ input, textarea {
     overflow: hidden;
   }
 
+
   #sidebar {
     top: 0;
     left: 0;
@@ -262,6 +263,10 @@ input, textarea {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+  }
+
+  #sidebar .item .delete {
+    opacity: .7;
   }
 
   #main {
