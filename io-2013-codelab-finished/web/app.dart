@@ -87,7 +87,7 @@ int _startTime;
 
 /// Listen for touch to start. Clicks will pass through.
 touchStart(TouchEvent event, Document doc) {
-  event.currentTarget.classes.add('touched');
+  (event.currentTarget as Element).classes.add('touched');
   _startTime = event.timeStamp;
 }
 
@@ -98,7 +98,7 @@ touchMove(TouchEvent event) {
 
 /// After waiting for a longpress, send a mail of the document.
 touchEnd(TouchEvent event, Document doc) {
-  event.currentTarget.classes.remove('touched');
+  (event.currentTarget as Element).classes.remove('touched');
   if (event.timeStamp > _startTime + 700) {
     event.preventDefault();
     window.location.href = 'mailto:?to=&subject=Document: ${doc.title}'
