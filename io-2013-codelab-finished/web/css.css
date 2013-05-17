@@ -273,6 +273,7 @@ input, textarea {
   }
 }
 
+/* STEP 6: Add styles for mobile devices */
 /* Mobile styles. */
 @media all and (max-width: 500px) {
   body {
