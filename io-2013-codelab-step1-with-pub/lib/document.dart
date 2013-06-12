@@ -31,9 +31,11 @@ class Document {
   /// The unique identifier is `document-` followed by a large random number.
   String id;
 
+  /// A random number generator.
+  static Random random = new Random();
+
   /// Create a new document.
   Document(this._title, this._content) {
-    var random = new Random();
     id = 'document-${random.nextInt(1000000)}';
     created = new DateTime.now();
     modified = new DateTime.now();
@@ -61,7 +63,7 @@ class Document {
     return JSON.stringify(data);
   }
 
-  /// STEP 1: Add wordcount method.
+  /// STEP 1: Add wordCount method.
 
 
   // These setters and getters are used to update the modification time.
