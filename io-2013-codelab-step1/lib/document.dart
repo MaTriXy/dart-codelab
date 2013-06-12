@@ -62,8 +62,19 @@ class Document {
   }
 
   /// STEP 1: Add wordcount method.
-
-
+  /*
+  String get wordCount{
+    int count = new RegExp(r"(\w|\')+").allMatches(_content).length;
+    if(count >= 1) {
+      return '$count words';
+    }
+    else if (count == 1) {
+      return '$count word';
+    }
+    return 'No words - Yo, Yo write something...';
+  }
+  */
+  
   // These setters and getters are used to update the modification time.
 
   /// The title of our document.
