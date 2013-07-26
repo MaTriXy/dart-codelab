@@ -2,3 +2,4 @@ out/
 packages
 .buildlog
 .settings
+pubspec.lock
