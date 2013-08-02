@@ -2,6 +2,8 @@ io-2013-dart-codelab
 =====================
 
 A modern web focused codelab built for Google I/O 2013.
+For detailed instructions, see
+[Dart code lab for Google I/O 2013](http://www.dartlang.org/codelabs/web-ui-writer/)
 
 Build Status
 ------------
